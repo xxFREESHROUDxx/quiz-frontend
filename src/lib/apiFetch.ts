@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 type ApiFetchOptions = RequestInit & {
   token?: string | null;
@@ -25,7 +25,6 @@ export async function apiFetch<T>(path: string, options: ApiFetchOptions = {}): 
     const error = await response.json().catch(() => ({
       message: "Something went wrong",
     }));
-
     throw new Error(error.message || `HTTP error ${response.status}`);
   }
 

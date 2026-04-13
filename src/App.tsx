@@ -7,11 +7,12 @@ import DashboardPage from "./pages/DashboardPage";
 import PrivateRoute from "./components/PrivateRoute";
 import CreateQuizPage from "./pages/CreateQuizPage";
 import EditQuizPage from "./pages/EditQuizPage";
+import { WEB_ROUTES } from "./constants/webRoutes";
 
 function RootRedirect() {
   const { token } = useAuth();
 
-  return token ? <Navigate to="/dashboard" /> : <Navigate to="/login" />;
+  return token ? <Navigate to={WEB_ROUTES.DASHBOARD} /> : <Navigate to={WEB_ROUTES.LOGIN} />;
 }
 
 export default function App() {
@@ -20,16 +21,16 @@ export default function App() {
       <AuthProvider>
         <Routes>
           {/* Root redirect */}
-          <Route path="/" element={<RootRedirect />} />
+          <Route path={WEB_ROUTES.HOME} element={<RootRedirect />} />
 
           {/* Public routes */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/q/:permalink" element={<TakeQuizPage />} />
+          <Route path={WEB_ROUTES.LOGIN} element={<LoginPage />} />
+          <Route path={WEB_ROUTES.REGISTER} element={<RegisterPage />} />
+          <Route path={WEB_ROUTES.PERMALINK} element={<TakeQuizPage />} />
 
           {/* Protected routes */}
           <Route
-            path="/dashboard"
+            path={WEB_ROUTES.DASHBOARD}
             element={
               <PrivateRoute>
                 <DashboardPage />
@@ -38,7 +39,7 @@ export default function App() {
           />
 
           <Route
-            path="/quizzes/new"
+            path={WEB_ROUTES.CREATE_QUIZ}
             element={
               <PrivateRoute>
                 <CreateQuizPage />
@@ -47,7 +48,7 @@ export default function App() {
           />
 
           <Route
-            path="/quizzes/:id/edit"
+            path={WEB_ROUTES.EDIT_QUIZ}
             element={
               <PrivateRoute>
                 <EditQuizPage />
@@ -56,7 +57,7 @@ export default function App() {
           />
 
           {/* Catch all route */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to={WEB_ROUTES.HOME} replace />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
