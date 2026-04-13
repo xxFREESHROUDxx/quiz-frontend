@@ -6,6 +6,6 @@ export const API_ROUTES = {
     ME: "/auth/me",
   },
   QUIZZES: {
-    ROOT: "/quizzes",
+    GET_ALL_QUIZZES: "/quizzes",
   },
 };
