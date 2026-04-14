@@ -57,7 +57,9 @@ const AnswerFields: FunctionComponent<AnswerFieldsProps> = ({ questionIndex }) =
               type="checkbox"
               className="w-4 h-4 accent-blue-600 shrink-0 cursor-pointer"
               title="Mark as correct answer"
-              {...register(`questions.${questionIndex}.answers.${answerIndex}.isCorrect`)}
+              {...register(`questions.${questionIndex}.answers.${answerIndex}.isCorrect`, {
+                setValueAs: (value) => Boolean(value),
+              })}
             />
 
             {/* Answer text */}
