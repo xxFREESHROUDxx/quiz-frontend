@@ -9,9 +9,10 @@ import Button from "../components/Button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { WEB_ROUTES } from "../constants/webRoutes";
+import { API_ROUTES } from "../constants/apiRoutes";
 
 const schema = z.object({
-  email: z.string().email("Please enter a valid email address"),
+  email: z.email("Please enter a valid email address"),
   password: z.string().min(6, "Password must be at least 6 characters long"),
 });
 
@@ -34,12 +35,12 @@ export default function LoginPage() {
     setServerError(null);
 
     try {
-      const { accessToken } = await apiFetch<{ accessToken: string }>("/auth/login", {
+      const { accessToken } = await apiFetch<{ accessToken: string }>(API_ROUTES.AUTH.LOGIN, {
         method: "POST",
         body: JSON.stringify(data),
       });
 
-      const user = await apiFetch<{ id: string; email: string }>("/auth/me", {
+      const user = await apiFetch<{ id: string; email: string }>(API_ROUTES.AUTH.ME, {
         token: accessToken,
       });
 

@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+import { API_BASE_URL } from "./config";
 
 type ApiFetchOptions = RequestInit & {
   token?: string | null;
@@ -16,7 +16,7 @@ export async function apiFetch<T>(path: string, options: ApiFetchOptions = {}): 
     headers["Authorization"] = `Bearer ${token}`;
   }
 
-  const response = await fetch(`${BASE_URL}${path}`, {
+  const response = await fetch(`${API_BASE_URL}${path}`, {
     ...fetchOptions,
     headers,
   });
