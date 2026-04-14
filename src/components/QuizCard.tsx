@@ -100,7 +100,7 @@ const QuizCard: FunctionComponent<QuizCardProps> = ({ quiz, token, onDeleted, on
           <span className="text-xs text-gray-500 truncate flex-1">{permalinkUrl}</span>
           <button
             onClick={handleCopyLink}
-            className="text-xs text-blue-600 hover:text-blue-800 font-medium shrink-0 transition"
+            className="text-xs text-blue-500 cursor-pointer bg-blue-100 hover:bg-blue-200 rounded-2xl py-1 px-2 flex items-center justify-center font-medium shrink-0 transition"
           >
             {copied ? "✓ Copied" : "Copy"}
           </button>
