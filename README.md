@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# Quiz Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + TypeScript + Vite application for creating, managing, and taking quizzes with role-based authentication.
 
-Currently, two official plugins are available:
+## Setup & Running
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Prerequisites
 
-## React Compiler
+- Node.js 16+
+- Backend API running on localhost or configured in environment
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Starts the development server at `http://localhost:5173`
+
+### Production Build
+
+```bash
+npm run build
+npm run preview
+```
+
+### Environment
+
+Create a `.env` file with your backend API URL. Check `.env.example` for more info:
+
+```
+VITE_API_URL=https://your-backend-api.com
+```
+
+## Folder Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── quiz-builder/   # Quiz creation form components
+│   ├── AuthLayout.tsx
+│   ├── PageLayout.tsx
+│   ├── PrivateRoute.tsx
+│   └── ...
+├── pages/              # Page components
+│   ├── LoginPage.tsx
+│   ├── DashboardPage.tsx
+│   ├── CreateQuizPage.tsx
+│   ├── TakeQuizPage.tsx
+│   └── ...
+├── context/            # React context (Auth)
+├── constants/          # API routes and web routes
+├── lib/                # Utilities & schemas
+│   ├── apiFetch.ts
+│   ├── quizSchema.ts  # Zod validation schemas
+│   └── config.ts
+├── types/              # TypeScript types
+├── App.tsx
+└── main.tsx
+```
+
+## Key Features
+
+- ✅ User authentication (Login/Register)
+- ✅ Create & edit quizzes with multiple question types
+- ✅ Share quizzes via unique permalink
+- ✅ Take quizzes with instant results
+- ✅ Form validation with Zod
+- ✅ Protected routes for authenticated users
+
+## Tech Stack
+
+- React 19
+- TypeScript
+- Vite
+- React Router
+- React Hook Form + Zod
+- Tailwind CSS
