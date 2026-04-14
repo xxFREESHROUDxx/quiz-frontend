@@ -46,7 +46,7 @@ const QuestionFields: FunctionComponent = () => {
                 <button
                   type="button"
                   onClick={() => remove(questionIndex)}
-                  className="text-sm text-red-400 hover:text-red-600 transition font-medium"
+                  className="text-sm text-red-400 cursor-pointer hover:text-red-600 transition font-medium"
                 >
                   Remove
                 </button>
@@ -93,7 +93,7 @@ const QuestionFields: FunctionComponent = () => {
         <button
           type="button"
           onClick={addQuestion}
-          className="w-full py-3 border-2 border-dashed border-gray-300 rounded-2xl text-sm text-gray-400 hover:border-blue-400 hover:text-blue-500 transition font-medium"
+          className="w-full py-3 border-2 hover:cursor-pointer border-dashed border-gray-300 rounded-2xl text-sm text-gray-400 hover:border-blue-400 hover:text-blue-500 transition font-medium"
         >
           + Add Question
         </button>

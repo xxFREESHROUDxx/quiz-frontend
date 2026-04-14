@@ -78,7 +78,7 @@ const AnswerFields: FunctionComponent<AnswerFieldsProps> = ({ questionIndex }) =
                 type="button"
                 onClick={() => remove(answerIndex)}
                 title="Remove answer"
-                className="text-gray-300 hover:text-red-400 transition text-lg leading-none shrink-0"
+                className="text-gray-300 mb-0.5 cursor-pointer hover:text-red-400 transition text-lg leading-none shrink-0"
               >
                 x
               </button>
@@ -92,7 +92,7 @@ const AnswerFields: FunctionComponent<AnswerFieldsProps> = ({ questionIndex }) =
         <button
           type="button"
           onClick={() => append({ text: "", isCorrect: false })}
-          className="text sm text-blue-600 hover:text-blue-800 font-medium text-left transition mt-1"
+          className="text-sm w-fit cursor-pointer text-blue-600 hover:text-blue-800 font-medium text-left transition mt-1"
         >
           + Add answer
         </button>
