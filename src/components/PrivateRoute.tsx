@@ -8,7 +8,12 @@ interface Props {
 }
 
 export default function PrivateRoute({ children }: Props) {
-  const { token } = useAuth();
+  const { token, isHydrated } = useAuth();
+
+  if (!isHydrated) {
+    // TODO: Show loading spinner instead of blank page
+    return null;
+  }
 
   if (!token) {
     return <Navigate to={WEB_ROUTES.LOGIN} />;
