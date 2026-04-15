@@ -76,7 +76,7 @@ export default function DashboardPage() {
           <p className="text-gray-400 text-sm mb-6">
             Create your first quiz and share it with the world
           </p>
-          <Button onClick={() => navigate("/quizzes/new")}>Create your first quiz</Button>
+          <Button onClick={() => navigate(WEB_ROUTES.CREATE_QUIZ)}>Create your first quiz</Button>
         </div>
       )}
 
