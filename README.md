@@ -2,7 +2,7 @@
 
 A React + TypeScript + Vite application for creating, managing, and taking quizzes with role-based authentication.
 
-Live Preview: [quiz-frontend-git-main-baibhav-kcs-projects.vercel.app](quiz-frontend-git-main-baibhav-kcs-projects.vercel.app)
+Live Preview: [quiz-frontend-git-main-baibhav-kcs-projects.vercel.app](https://quiz-frontend-git-main-baibhav-kcs-projects.vercel.app)
 
 ## Setup & Running
 
