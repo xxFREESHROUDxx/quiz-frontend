@@ -74,7 +74,7 @@ const QuizCard: FunctionComponent<QuizCardProps> = ({ quiz, token, onDeleted, on
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col gap-4 shadow-sm transition hover:shadow-md">
+    <div className="bg-white border border-gray-200 justify-between rounded-2xl p-6 flex flex-col gap-4 shadow-sm transition hover:shadow-md">
       {/* Title and Badge */}
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -108,7 +108,7 @@ const QuizCard: FunctionComponent<QuizCardProps> = ({ quiz, token, onDeleted, on
       )}
 
       {/* Action Buttons */}
-      <div className="flex items-center gap-2 pt-1">
+      <div className="flex items-center justify-end gap-2 pt-1">
         {/* If quiz is not published, we have Edit and Publish buttons */}
         {!quiz.isPublished && (
           <>
